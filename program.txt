@@ -1,0 +1,35 @@
+# Initialize registers
+MOV AYB 10      # Set AYB to 10
+MOV BEN 5     # Set BEN to 100
+MOV GIM 20      # Set GIM to 20
+MOV DA 15       # Set DA to 15
+MOV ECH 25      # Set ECH to 25
+MOV ZA 0        # Set ZA to 0
+
+# Load memory
+MOV [1] 10      # Memory[1] = 10
+MOV [2] 20      # Memory[2] = 20
+
+# Simple comparison and jumps
+CMP AYB BEN
+JE label_equal
+JG label_greater
+JL label_less
+
+# If none of the jumps occur, something went wrong
+MOV ZA 1        # Set ZA to 1 (Error state)
+
+label_equal:
+MOV DA 100      # If AYB == BEN, set DA to 100
+JMP end
+
+label_greater:
+MOV DA 200      # If AYB > BEN, set DA to 200
+JMP end
+
+label_less:
+MOV DA 300      # If AYB < BEN, set DA to 300
+JMP end
+
+end:
+# End of the program
